@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="heure_ouverture">
-            <h3>Ouverture:</h3>
+            <h3>Ouvert:</h3>
             <ul>
                 <li>Du Lundi au Vendredi: 07:00 à 21:00</li>
                 <li>Le Samedi: 09:00 à 23:00</li>

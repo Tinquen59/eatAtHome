@@ -5,15 +5,15 @@
   </div> -->
   <div>
     <div class="menu">
-      <button class="btnMenu">
+      <router-link :to="{ name: 'Boisson' }" class="menu__btn">
         Boisson
-      </button>
+      </router-link>
 
-      <button class="btnMenu">
+      <button class="menu__btn">
         Menu
       </button>
 
-      <button class="btnMenu">
+      <button class="menu__btn">
         Dessert
       </button>
     </div>
@@ -42,24 +42,24 @@ $color-bgc: #dfdddd;
 .menu {
   display: flex;
   margin-top: 200px;
-  // justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-.btnMenu {
-  width: 250px;
-  height: 50px;
-  margin-bottom: 20px;
-  border-radius: 20px;
-  border: none;
-  background-color: $color-bgc;
-  font-size: 2rem;
-
-  &:hover {
-    background-color: #fd7854;
-    color: #fff;
-    transition-duration: 0.5s;
+  &__btn {
+    width: 250px;
+    height: 50px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: $color-bgc;
+    font-size: 2rem;
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    &:hover {
+      background-color: #fd7854;
+      color: #fff;
+      transition-duration: 0.5s;
+    }
   }
 }
 
