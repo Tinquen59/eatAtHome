@@ -29,7 +29,7 @@ export default {
     name: 'Carousel',
     data() {
         return {
-            images: ['chef-cuisto', 'exterieur', 'interieur'],
+            images: [ 'exterieur', 'chef-cuisto', 'interieur'],
             imageDisplay: '',
             counter: 0
         }

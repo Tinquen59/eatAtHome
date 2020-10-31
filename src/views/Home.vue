@@ -18,21 +18,13 @@
       </button>
     </div>
 
-    <Carousel />
-
-    
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Carousel from '@/components/Carousel.vue'
-
 export default {
   name: 'Home',
-  components: {
-    Carousel
-  }
 }
 </script>
 
@@ -55,10 +47,10 @@ $color-bgc: #dfdddd;
     color: #000;
     text-decoration: none;
     text-align: center;
+    transition-duration: 0.5s;
     &:hover {
       background-color: #fd7854;
       color: #fff;
-      transition-duration: 0.5s;
     }
   }
 }
