@@ -5,34 +5,26 @@
   </div> -->
   <div>
     <div class="menu">
-      <button class="btnMenu">
+      <router-link :to="{ name: 'Boisson' }" class="menu__btn">
         Boisson
-      </button>
+      </router-link>
 
-      <button class="btnMenu">
+      <button class="menu__btn">
         Menu
       </button>
 
-      <button class="btnMenu">
+      <button class="menu__btn">
         Dessert
       </button>
     </div>
 
-    <Carousel />
-
-    
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Carousel from '@/components/Carousel.vue'
-
 export default {
   name: 'Home',
-  components: {
-    Carousel
-  }
 }
 </script>
 
@@ -42,24 +34,24 @@ $color-bgc: #dfdddd;
 .menu {
   display: flex;
   margin-top: 200px;
-  // justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-.btnMenu {
-  width: 250px;
-  height: 50px;
-  margin-bottom: 20px;
-  border-radius: 20px;
-  border: none;
-  background-color: $color-bgc;
-  font-size: 2rem;
-
-  &:hover {
-    background-color: #fd7854;
-    color: #fff;
+  &__btn {
+    width: 250px;
+    height: 50px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: $color-bgc;
+    font-size: 2rem;
+    color: #000;
+    text-decoration: none;
+    text-align: center;
     transition-duration: 0.5s;
+    &:hover {
+      background-color: #fd7854;
+      color: #fff;
+    }
   }
 }
 

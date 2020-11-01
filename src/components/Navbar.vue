@@ -1,7 +1,9 @@
 <template>
     <div class="navbar">
         <div class="navbar__logo">
-            <img src="/images/logo_site.png" alt="logo site">
+            <router-link :to="{ name: 'Home' }">
+                <img src="/images/logo_site.png" alt="logo site">
+            </router-link>
         </div>
         <p class="navbar__link">Nos produits</p>
     </div>

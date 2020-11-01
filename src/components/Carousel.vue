@@ -11,14 +11,6 @@
                 <i class="fas fa-chevron-right" @click="nexPicture"></i>
             </div>
 
-            <!-- <ul class="carousel__shortcut">
-                <li 
-                    v-for="image in images" 
-                    @click="selectPicture(image)"
-                    :key="image"
-                >
-                </li>
-            </ul> -->
             <ul class="carousel__shortcut">
                 <li class="carousel__shortcut_liste"
                     v-for="n in images.length"
@@ -37,7 +29,7 @@ export default {
     name: 'Carousel',
     data() {
         return {
-            images: ['chef-cuisto', 'exterieur', 'interieur'],
+            images: [ 'exterieur', 'chef-cuisto', 'interieur'],
             imageDisplay: '',
             counter: 0
         }
@@ -68,7 +60,7 @@ export default {
 </script>
 
 <style lang="scss">
-$height-pictures: 400px;
+$height-pictures: 500px;
 
 @mixin iconPostion($divider, $marginLeft: 0, $marginRight: 0) {
     position: relative;
