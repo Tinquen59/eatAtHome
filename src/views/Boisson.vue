@@ -8,6 +8,7 @@
         <div class="drinks">
             <card-item
             v-for="item in menus"
+            v-show="item.type === 'boisson'"
             :image="item.image"
             :name="item.name"
             :price="item.price"

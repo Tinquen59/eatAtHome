@@ -17,13 +17,23 @@ export default new Vuex.Store({
         composition: ''
       },
       {
-        name: 'evian',
+        name: 'fanta-orange',
         image: {
-          src: '/images/boissons/evian.png',
-          alt: 'une bouteille d\'evian'
+          src: '/images/boissons/fanta-orange.png',
+          alt: 'une bouteille de fanta orange'
         },
         type: 'boisson',
-        price: 1,
+        price: 1.50,
+        composition: ''
+      },
+      {
+        name: 'fanta-citron',
+        image: {
+          src: '/images/boissons/fanta-citron.png',
+          alt: 'une bouteille de fanta citron'
+        },
+        type: 'boisson',
+        price: 1.50,
         composition: ''
       },
       {
@@ -45,7 +55,17 @@ export default new Vuex.Store({
         type: 'boisson',
         price: 1.50,
         composition: ''
-      }
+      },
+      {
+        name: 'sprite',
+        image: {
+          src: '/images/boissons/sprite.png',
+          alt: 'une bouteille de sprite'
+        },
+        type: 'boisson',
+        price: 1.50,
+        composition: ''
+      },
     ]
   },
   mutations: {
