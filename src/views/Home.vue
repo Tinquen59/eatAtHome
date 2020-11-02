@@ -9,9 +9,9 @@
         Boisson
       </router-link>
 
-      <button class="menu__btn">
+      <router-link :to="{ name: 'Menu' }" class="menu__btn">
         Menu
-      </button>
+      </router-link>
 
       <button class="menu__btn">
         Dessert
@@ -22,9 +22,10 @@
 </template>
 
 <script>
+
 // @ is an alias to /src
 export default {
-  name: 'Home',
+  name: 'Home'
 }
 </script>
 

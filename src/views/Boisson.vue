@@ -5,7 +5,7 @@
             <i class="far fa-hand-point-left"></i>
         </router-link>
         
-        <div class="drinks">
+        <!-- <div class="drinks">
             <card-item
             v-for="item in menus"
             v-show="item.type === 'boisson'"
@@ -14,18 +14,31 @@
             :price="item.price"
             :key="item.id"
         />
-        </div>
+        </div> -->
+
+        <container-card-item>
+            <card-item
+                v-for="item in menus"
+                v-show="item.type === 'boisson'"
+                :image="item.image"
+                :name="item.name"
+                :price="item.price"
+                :key="item.id"
+            />
+        </container-card-item>
     </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import ContainerCardItem from '../components/ContainerCardItem.vue'
 import CardItem from '../components/CardItem.vue'
 
 export default {
     name: 'Boisson',
     components: {
-        CardItem
+        CardItem,
+        ContainerCardItem
     },
     computed: {
         ...mapState(['menus'])
