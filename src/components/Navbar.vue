@@ -6,6 +6,7 @@
             </router-link>
         </div>
         <p class="navbar__link">Nos produits</p>
+        <div>Nos produits</div>
     </div>
 </template>
 

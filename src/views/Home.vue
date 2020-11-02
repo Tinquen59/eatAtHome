@@ -13,6 +13,10 @@
         Menu
       </router-link>
 
+      <router-link :to="{ name: 'Dessert' }" class="menu__btn">
+        Dessert
+      </router-link>
+
       <button class="menu__btn">
         Dessert
       </button>

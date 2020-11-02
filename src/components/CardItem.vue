@@ -47,10 +47,6 @@ export default {
                 name: this.name,
                 price: this.price
             })
-        },
-        activeMore() {
-            // return !this.moreIsActive
-            console.log('more')
         }
     }
 }

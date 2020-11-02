@@ -135,7 +135,27 @@ export default new Vuex.Store({
         type: 'accompagnement',
         price: 2.5,
         composition: ''
-      }
+      },
+      {
+        name: 'dessert mystérieux',
+        image: {
+          src: '/images/desserts/dessert1.png',
+          alt: 'un dessert1'
+        },
+        type: 'dessert',
+        price: 3,
+        composition: ''
+      },
+      {
+        name: 'glace',
+        image: {
+          src: '/images/desserts/dessert2.png',
+          alt: 'une glace'
+        },
+        type: 'dessert',
+        price: 4.5,
+        composition: ''
+      },
     ]
   },
   mutations: {

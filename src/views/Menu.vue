@@ -51,7 +51,6 @@ export default {
     },
     methods: {
         openModal(paylod) {
-            console.log("modal is open")
             this.displayModal = true
             this.nameMenu = paylod.name,
             this.priceMenu = paylod.price

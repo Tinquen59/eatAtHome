@@ -24,7 +24,7 @@
                         <p>+{{ accompagnement.price }}€</p>
                     </div>
                     <div class="card-accompagnement">
-                        <img src="/images/menu/no-food.png" alt="pas de supplément">
+                        <img src="/images/menu/accompagnement/no-food.png" alt="pas de supplément">
                         <p>+0€</p>
                     </div>
                 </div>
