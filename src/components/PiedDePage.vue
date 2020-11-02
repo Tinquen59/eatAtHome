@@ -2,7 +2,7 @@
     <div>
         <Carousel />
 
-        <hr>
+        <hr class="separateur-footer">
 
         <div class="infos">
             <div class="infos__heure-ouverture">
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss">
-hr {
+.separateur-footer {
     margin: 60px 60px;
 }
 .infos {

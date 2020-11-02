@@ -13,12 +13,12 @@ const routes = [
     component: Home
   },
   {
-    path: 'nosProduits/boisson',
+    path: '/nosProduits/boisson',
     name: 'Boisson',
     component: Boisson
   },
   {
-    path: 'nosProduits/menu',
+    path: '/nosProduits/menu',
     name: 'Menu',
     component: Menu
   }

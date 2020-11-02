@@ -74,7 +74,7 @@ export default new Vuex.Store({
         },
         type: 'menu',
         price: 7.5,
-        composition: ''
+        composition: 'travers de porc / sauce BBC'
       },
       {
         name: 'bucket Poulet',
@@ -84,7 +84,7 @@ export default new Vuex.Store({
         },
         type: 'menu',
         price: 9.5,
-        composition: ''
+        composition: 'Sceau de poulet'
       },
       {
         name: 'hamburger',
@@ -94,7 +94,7 @@ export default new Vuex.Store({
         },
         type: 'menu',
         price: 6,
-        composition: ''
+        composition: 'Pain burger / cheddar / steak pur boeuf / salade / tomate /oignon'
       },
       {
         name: 'hot dog',
@@ -104,7 +104,7 @@ export default new Vuex.Store({
         },
         type: 'menu',
         price: 5,
-        composition: ''
+        composition: 'Pain blanc / saucisse / ketchup / mayonnaise / cornichon /oignon'
       },
       {
         name: 'mega tacos',
@@ -114,8 +114,28 @@ export default new Vuex.Store({
         },
         type: 'menu',
         price: 9,
+        composition: 'Tortillas / tabasco / poivron / tomate / oignon / poulet / boeuf haché'
+      },
+      {
+        name: 'frites',
+        image: {
+          src: '/images/menu/accompagnement/frites.png',
+          alt: 'des frites'
+        },
+        type: 'accompagnement',
+        price: 2.5,
         composition: ''
       },
+      {
+        name: 'salade',
+        image: {
+          src: '/images/menu/accompagnement/salade.png',
+          alt: 'une salade'
+        },
+        type: 'accompagnement',
+        price: 2.5,
+        composition: ''
+      }
     ]
   },
   mutations: {

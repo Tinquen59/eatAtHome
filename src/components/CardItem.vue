@@ -1,5 +1,5 @@
 <template>
-    <div class="item-card">
+    <div class="item-card" @click="emitChooseMenu">
         <div>
             <img class="item-card__image" :src="image.src" :alt="image.alt">
         </div>
@@ -7,6 +7,11 @@
         <p class="item-card__name">{{ name }}</p>
 
         <p>{{ price }}€</p>
+
+        <div class="item-card__footer" v-if="composition.length">
+            <hr>
+            <p>{{ composition }}</p>
+        </div>
     </div>
 </template>
 
@@ -25,6 +30,27 @@ export default {
         price: {
             type: Number,
             required: true
+        },
+        composition: {
+            type: String,
+            default: ''
+        }
+    },
+    data() {
+        return {
+            moreIsActive: false
+        }
+    },
+    methods: {
+        emitChooseMenu() {
+            this.$emit('choose-menu', {
+                name: this.name,
+                price: this.price
+            })
+        },
+        activeMore() {
+            // return !this.moreIsActive
+            console.log('more')
         }
     }
 }
@@ -41,15 +67,23 @@ $color-primary: #fd7854;
     text-align: center;
     width: 450px;
     padding-top: 10px;
-    &:hover {
-        background-color: #fd7854;
-    }
     &__image {
         width: 120px;
     }
     &__name {
         font-weight: bold;
         text-transform: uppercase;
+    }
+    &__footer {
+        display: none;
+        color: #fff;
+    }
+
+    &:hover {
+        background-color: #fd7854;
+        & .item-card__footer {
+            display: block;
+        }
     }
 }
 </style>
