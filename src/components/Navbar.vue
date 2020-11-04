@@ -10,20 +10,32 @@
                 <li class="dropdown">Nos Produits <i class="fas fa-caret-down"></i>
                     <ul class="dropdown__menu">
                         <li class="dropdown__menu--item">
-                            <router-link class="dropdown--link" :to="{ name: 'AllProducts' }">Tous nos produits</router-link>
+                            <router-link class="nav--link" :to="{ name: 'AllProducts' }">
+                                Tous nos produits
+                                </router-link>
                         </li>
                         <li class="dropdown__menu--item">
-                            <router-link class="dropdown--link" :to="{ name: 'Menu' }">Menu</router-link>
+                            <router-link class="nav--link" :to="{ name: 'Menu' }">
+                                Menu
+                            </router-link>
                         </li>
                         <li class="dropdown__menu--item">
-                            <router-link class="dropdown--link" :to="{ name: 'Boisson' }">Boisson</router-link>
+                            <router-link class="nav--link" :to="{ name: 'Boisson' }">
+                                Boisson
+                            </router-link>
                         </li>
                         <li class="dropdown__menu--item">
-                            <router-link class="dropdown--link" :to="{ name: 'Dessert' }">Dessert</router-link>
+                            <router-link class="nav--link" :to="{ name: 'Dessert' }">
+                                Dessert
+                            </router-link>
                         </li>
                     </ul>
                 </li>
-                <li>Contact</li>
+                <li>
+                    <router-link class="nav--link" :to="{ name: 'Contact' }">
+                        Contact
+                    </router-link>
+                </li>
             </ul>
 
             <div class="shopping">
@@ -89,19 +101,20 @@ header .navbar {
         display: none;
         position: relative;
     }
-    &--link {
-        text-decoration: none;
-        color: $color-secondary;
-    }
 
     &:hover {
         & .dropdown__menu {
             display: block;
         }
-        & .dropdown--link:hover {
+        & .nav--link:hover {
             color: #fd7854;
         }
     }
+}
+
+.nav--link {
+    text-decoration: none;
+    color: $color-secondary;
 }
 
 .shopping {

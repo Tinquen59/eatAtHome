@@ -5,6 +5,7 @@ import Boisson from '../views/Boisson.vue'
 import Menu from '../views/Menu.vue'
 import Dessert from '../views/Dessert.vue'
 import AllProducts from '../views/AllProducts.vue'
+import Contact from '../views/Contact.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/nosProduits/All',
     name: 'AllProducts',
     component: AllProducts
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: Contact
   }
 ]
 
