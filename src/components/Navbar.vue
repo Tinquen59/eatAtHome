@@ -1,28 +1,5 @@
 <template>
-    <!-- <div class="navbar">
-        <div class="navbar__logo">
-            <router-link :to="{ name: 'Home' }">
-                <img src="/images/logo_site.png" alt="logo site">
-            </router-link>
-        </div>
-        <p class="navbar__link">Nos produits</p>
-    </div> -->
-
     <header>
-        <!-- <div class="navbar__logo">
-            <router-link :to="{ name: 'Home' }">
-                <img src="/images/logo_site.png" alt="logo site">
-            </router-link>
-        </div> -->
-
-        <!-- <div class="dropdown">
-            <p class="dropdown--title">Nos produits <span><i class="fas fa-caret-down"></i></span></p>
-            <div class="dropdown__fields">
-                <p>Boisson</p>
-                <p>Menu</p>
-                <p>Dessert</p>
-            </div>
-        </div> -->
         <nav class="navbar">
             <ul class="navbar__menu">
                 <li>
@@ -30,7 +7,7 @@
                         <img src="/images/logo_site.png" alt="logo site" />
                     </router-link>
                 </li>
-                <li class="dropdown">Nos Produits
+                <li class="dropdown">Nos Produits <i class="fas fa-caret-down"></i>
                     <ul class="dropdown__menu">
                         <li class="dropdown__menu--item">
                             <router-link class="dropdown--link" :to="{ name: 'AllProducts' }">Tous nos produits</router-link>
@@ -46,8 +23,13 @@
                         </li>
                     </ul>
                 </li>
-                <li>contact</li>
+                <li>Contact</li>
             </ul>
+
+            <div class="shopping">
+                <i class="fas fa-shopping-basket"></i>
+                <span class="shopping--counter">0</span>
+            </div>
         </nav>
     </header>
 </template>
@@ -64,16 +46,19 @@ $color-bgc: #dfdddd;
 // $color-secondary: #fff;
 $color-secondary: #2c3e50;
 
+@mixin flexRow {
+    display: flex;
+    flex-direction: row;
+}
+
 header .navbar {
-    // color: $color-secondary;
     width: 100%;
     background-color: $color-bgc;
     height: 70px;
+    @include flexRow;
 
     &__menu {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
+        @include flexRow;
     }
 
     & ul {
@@ -81,10 +66,8 @@ header .navbar {
         padding: 0;
 
         & li {
-            // margin: 0;
             padding-top: 10px;
-            // margin-top: 10px;
-            width: 200px;
+            width: 150px;
             height: 40px;
             text-align: center;
             background-color: $color-bgc;
@@ -118,6 +101,20 @@ header .navbar {
         & .dropdown--link:hover {
             color: #fd7854;
         }
+    }
+}
+
+.shopping {
+    font-size: 2rem;
+    padding-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+
+    &--counter {
+        font-size: 1.5rem;
+        margin-left: 5px;
     }
 }
 </style>
