@@ -1,37 +1,45 @@
 <template>
   <div class="container">
-    <form class="form">
-      <!-- <div class="form__field">
-        <input class="form__field--input" 
-          type="text" 
-          placeholder="Nom*" 
-          v-model="nom"
-        />
-        <input class="form__field--input" 
-          type="text" 
-          placeholder="Prenom*" 
-          v-model="prenom"
-        />
-      </div> -->
-      <div class="form__field">
-        <label class="custom__field">
-          <input type="text" required/>
-          <span class="placeholder">Nom*</span>
-        </label>
-        <label class="custom__field">
-          <input type="text" required/>
-          <span class="placeholder">Nom*</span>
-        </label>
+    <div class="card__form">
+      <div class="alert alert--success" v-if="errors.length === 0 && displayAlert">
+        Formulaire bien envoyé
+      </div>
+      <div class="alert alert--error" v-if="errors.length">
+        <ul>
+          <li v-for="error in errors" :key="error.id">
+            <i class="fas fa-rocket"></i> {{ error }}
+          </li>
+        </ul>
       </div>
 
-      <div class="form__message">
-        <textarea name="" id="" rows="7" placeholder="Votre message*" required></textarea>
-      </div>
+      <form class="form" @submit.prevent="submitForm">
+        <div class="form__field">
+          <label class="custom__field">
+            <input type="text" v-model="nom" required/>
+            <span class="placeholder">Nom*</span>
+          </label>
+          <label class="custom__field">
+            <input type="text" v-model="prenom" required/>
+            <span class="placeholder">Prenom*</span>
+          </label>
+        </div>
 
-      <div class="submit__form">
-        <button type="submit" class="submit--btn">Envoyer</button>
-      </div>
-    </form>
+        <div class="form__message">
+          <textarea name="" rows="7" placeholder="Votre message*" v-model="message" required></textarea>
+        </div>
+
+        <div class="form__information">
+          <small>*: champ obligatoire</small>
+          <span :class="changeColor">
+            {{ message.trim().length }}
+          </span>
+        </div>
+
+        <div class="submit__form">
+          <button type="submit" class="submit--btn">Envoyer</button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -41,16 +49,53 @@ export default {
   data() {
     return {
       nom: '',
-      prenom: ''
+      prenom: '',
+      message: '',
+      errors: [],
+      displayAlert: false
+    }
+  },
+  computed: {
+    changeColor() {
+      return {
+        'invalid-message': this.message.trim().length < 15, 
+        'valid-message': this.message.trim().length >= 15
+      }
+    }
+  },
+  methods: {
+    submitForm() {
+      const trimNom = this.nom.trim()
+      const trimPrenom = this.prenom.trim()
+      const trimMessage = this.message.trim()
+
+      const regex = /^[a-zA-Z ]+$/
+
+      this.errors = []
+
+      if ( trimNom.length === 0 || trimPrenom.length === 0 || trimMessage.length === 0 ) {
+        this.errors.push('Veuillez remplir tous les champs obligatoires')
+      } else {
+        if ( !regex.test(trimNom) ) {
+          this.errors.push('Le nom n\'est pas valide')
+        }
+        if ( !regex.test(trimPrenom) ) {
+          this.errors.push('Le prenom n\'est pas valide')
+        }
+        if ( trimMessage.length < 15 ) {
+          this.errors.push('Le message doit contenir 15 caractères')
+        }
+      }
+
+      this.errors.length === 0 ? this.displayAlert = true : this.displayAlert = false
     }
   }
 }
 </script>
 
 <style lang="scss">
-$color-bgc: #dfdddd;
-// $color-bgc: #83b860;
-$color-secondary: #2c3e50;
+$color-success: #4BB543;
+$color-error: #ff3333;
 
 .container {
   display: flex;
@@ -58,12 +103,33 @@ $color-secondary: #2c3e50;
   margin-top: 40px;
 }
 
-.form {
+.card__form {
   padding: 20px;
   width: 70%;
   border: 3px solid #fd7854;
+  box-shadow: 0 0 5px #2c3e50;
   border-radius: 20px;
+}
 
+.alert {
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+
+  &--success {
+    background-color: $color-success;
+  }
+  &--error {
+    background-color: $color-error;
+
+    & .fa-rocket {
+      rotate: 45deg;
+    }
+  }
+}
+
+.form {
+  
   &__field {
     margin-top: 10px;
     display: flex;
@@ -76,9 +142,10 @@ $color-secondary: #2c3e50;
     & textarea {
       resize: none;
       border-radius: 20px;
-      border: 2px solid #cccccc;
+      border: 2px solid #ccc;
       padding: 7px;
       width: 75%;
+      font: 14px cursive;
 
       &:required,&:invalid { box-shadow:none; }
 
@@ -87,9 +154,21 @@ $color-secondary: #2c3e50;
       }
     }
   }
+
+  &__information {
+    display: flex;
+    justify-content: space-between;
+      font-style: italic;
+    & span {
+      &.valid-message {
+        color: $color-success;
+      }
+      &.invalid-message {
+        color: $color-error;
+      }
+    }
+  }
 }
-
-
 
 // style input
 
@@ -150,11 +229,58 @@ $color-secondary: #2c3e50;
 
 // 
 
+// style button
 
 .submit {
   &__form {
     margin-top: 40px;
     text-align: center;
   }
+
+  &--btn {
+    width: 200px;
+    height: 60px;
+    background: none;
+    border: 4px solid;
+    color: #ccc;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 4px;
+      background: #fff;
+      transform: skewX(50deg);
+      transition: .4s linear;
+    }
+
+    &::before {
+      top: -4px;
+      left: 10%;
+    }
+
+    &::after {
+      bottom: -4px;
+      right: 10%;
+    }
+
+    &:hover {
+      color: #222;
+
+      &::before {
+        left: 80%;
+      }
+      &::after {
+        right: 80%;
+      }
+    }
+  }
 }
+
+// 
 </style>

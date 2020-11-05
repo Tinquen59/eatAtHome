@@ -71,6 +71,12 @@ header .navbar {
 
     &__menu {
         @include flexRow;
+
+         a {
+            &.router-link-exact-active {
+            color: #fd7854;
+            }
+        }
     }
 
     & ul {
@@ -100,6 +106,7 @@ header .navbar {
     &__menu {
         display: none;
         position: relative;
+        z-index: 1;
     }
 
     &:hover {
