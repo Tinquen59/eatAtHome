@@ -39,16 +39,23 @@
             </ul>
 
             <div class="shopping">
-                <i class="fas fa-shopping-basket"></i>
-                <span class="shopping--counter">0</span>
+                <router-link class="nav--link" :to="{ name: 'Panier' }">
+                    <i class="fas fa-shopping-basket"></i>
+                </router-link>
+                <span class="shopping--counter">{{ shoppingCartItems.length }}</span>
             </div>
         </nav>
     </header>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-    name: 'Navbar'
+    name: 'Navbar',
+    computed: {
+        ...mapState(['shoppingCartItems'])
+    }
 }
 </script>
 
@@ -135,6 +142,7 @@ header .navbar {
     &--counter {
         font-size: 1.5rem;
         margin-left: 5px;
+        margin-top: 7px;
     }
 }
 </style>

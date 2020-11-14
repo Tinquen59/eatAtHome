@@ -14,7 +14,7 @@ export default new Vuex.Store({
         },
         type: 'boisson',
         price: 1.50,
-        composition: ''
+        composition: '',
       },
       {
         name: 'fanta-orange',
@@ -156,11 +156,42 @@ export default new Vuex.Store({
         price: 4.5,
         composition: ''
       },
+    ],
+    shoppingCart: 0,
+    shoppingCartItems: [
+      {
+        name: 'glace',
+        image: {
+          src: '/images/desserts/dessert2.png',
+          alt: 'une glace'
+        },
+        price: 4.5,
+        composition: '',
+        quantity: 3
+      }
     ]
   },
   mutations: {
+    // INCREASE_CART(state, amount = 1) {
+    //   state.shoppingCart += amount
+    // },
+    PUSH_ITEM_CART(state, object) {
+      state.shoppingCartItems.push(object)
+    },
+    DELETE_ELEMENT_CART(state, index) {
+      state.shoppingCartItems.splice(index, 1)
+    }
   },
   actions: {
+    // uptdateShoppingCart({ commit }, amount) {
+    //   commit('INCREASE_CART', amount)
+    // },
+    addItemInCart({ commit }, object) {
+      commit('PUSH_ITEM_CART', object)
+    },
+    deleteElementInCart({ commit }, index) {
+      commit('DELETE_ELEMENT_CART', index)
+    }
   },
   modules: {
   }

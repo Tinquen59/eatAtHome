@@ -23,6 +23,7 @@
                 :image="item.image"
                 :name="item.name"
                 :price="item.price"
+                :typeOfItem="item.type"
                 :key="item.id"
             />
         </container-card-item>
