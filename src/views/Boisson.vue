@@ -4,17 +4,6 @@
         <router-link :to="{ name: 'Home' }">
             <i class="far fa-hand-point-left"></i>
         </router-link>
-        
-        <!-- <div class="drinks">
-            <card-item
-            v-for="item in menus"
-            v-show="item.type === 'boisson'"
-            :image="item.image"
-            :name="item.name"
-            :price="item.price"
-            :key="item.id"
-        />
-        </div> -->
 
         <container-card-item>
             <card-item
@@ -23,6 +12,7 @@
                 :image="item.image"
                 :name="item.name"
                 :price="item.price"
+                :typeOfItem="item.type"
                 :key="item.id"
             />
         </container-card-item>
@@ -47,6 +37,7 @@ export default {
 </script>
 
 <style lang="scss">
+$deg-rotation: 360deg;
 .drinks {
     display: flex;
     flex-direction: row;
@@ -63,7 +54,11 @@ export default {
     transition-duration: .5s;
     &:hover {
         color: #fd7854;
-        rotate: 360deg;
+        transform:rotate($deg-rotation);
+        -ms-transform:rotate($deg-rotation); /* IE 9 */
+        -moz-transform:rotate($deg-rotation); /* Firefox */
+        -webkit-transform:rotate($deg-rotation); /* Safari and Chrome */
+        -o-transform:rotate($deg-rotation); /* Opera */
     }
 }
 </style>

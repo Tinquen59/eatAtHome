@@ -1,15 +1,12 @@
 <template>
     <div>
-        <!-- <router-link :to="{ name: 'Home' }">
-            <i class="far fa-hand-point-left"></i>
-        </router-link> -->
-
         <container-card-item>
             <card-item
                 v-for="item in menus"
                 :image="item.image"
                 :name="item.name"
                 :price="item.price"
+                :typeOfItem="item.type"
                 :key="item.name"
             />
         </container-card-item>
