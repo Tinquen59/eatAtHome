@@ -60,7 +60,7 @@ export default {
 </script>
 
 <style lang="scss">
-$height-pictures: 500px;
+$height-pictures: 600px;
 
 @mixin iconPostion($divider, $marginLeft: 0, $marginRight: 0) {
     position: relative;
@@ -97,6 +97,7 @@ $height-pictures: 500px;
             border: 1px solid #000;
             border-radius: 50%;
             margin-right: 5px;
+            cursor: pointer;
             &:last-child {
                 margin-right: 0;
             }

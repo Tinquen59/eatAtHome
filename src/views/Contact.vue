@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <div class="card__form">
-      <div class="alert alert--success" v-if="errors.length === 0 && displayAlert">
+      <div
+        class="alert alert--success"
+        v-if="errors.length === 0 && displayAlert"
+      >
         Formulaire bien envoyé
       </div>
       <div class="alert alert--error" v-if="errors.length">
@@ -15,17 +18,23 @@
       <form class="form" @submit.prevent="submitForm">
         <div class="form__field">
           <label class="custom__field">
-            <input type="text" v-model="nom" required/>
+            <input type="text" v-model="nom" required />
             <span class="placeholder">Nom*</span>
           </label>
           <label class="custom__field">
-            <input type="text" v-model="prenom" required/>
+            <input type="text" v-model="prenom" required />
             <span class="placeholder">Prenom*</span>
           </label>
         </div>
 
         <div class="form__message">
-          <textarea name="" rows="7" placeholder="Votre message*" v-model="message" required></textarea>
+          <textarea
+            name=""
+            rows="7"
+            placeholder="Votre message*"
+            v-model="message"
+            required
+          ></textarea>
         </div>
 
         <div class="form__information">
@@ -45,57 +54,64 @@
 
 <script>
 export default {
-  name: 'Contact',
+  name: "Contact",
   data() {
     return {
-      nom: '',
-      prenom: '',
-      message: '',
+      nom: "",
+      prenom: "",
+      message: "",
       errors: [],
-      displayAlert: false
-    }
+      displayAlert: false,
+    };
   },
   computed: {
     changeColor() {
       return {
-        'invalid-message': this.message.trim().length < 15, 
-        'valid-message': this.message.trim().length >= 15
-      }
-    }
+        "invalid-message": this.message.trim().length < 15,
+        "valid-message": this.message.trim().length >= 15,
+      };
+    },
   },
   methods: {
     submitForm() {
-      const trimNom = this.nom.trim()
-      const trimPrenom = this.prenom.trim()
-      const trimMessage = this.message.trim()
+      const trimNom = this.nom.trim();
+      const trimPrenom = this.prenom.trim();
+      const trimMessage = this.message.trim();
 
-      const regex = /^[a-zA-Z ]+$/
+      const regex = /^[a-zA-Z ]+$/;
 
-      this.errors = []
+      this.errors = [];
 
-      if ( trimNom.length === 0 || trimPrenom.length === 0 || trimMessage.length === 0 ) {
-        this.errors.push('Veuillez remplir tous les champs obligatoires')
+      if (
+        trimNom.length === 0 ||
+        trimPrenom.length === 0 ||
+        trimMessage.length === 0
+      ) {
+        this.errors.push("Veuillez remplir tous les champs obligatoires");
       } else {
-        if ( !regex.test(trimNom) ) {
-          this.errors.push('Le nom n\'est pas valide')
+        if (!regex.test(trimNom)) {
+          this.errors.push("Le nom n'est pas valide");
         }
-        if ( !regex.test(trimPrenom) ) {
-          this.errors.push('Le prenom n\'est pas valide')
+        if (!regex.test(trimPrenom)) {
+          this.errors.push("Le prenom n'est pas valide");
         }
-        if ( trimMessage.length < 15 ) {
-          this.errors.push('Le message doit contenir 15 caractères')
+        if (trimMessage.length < 15) {
+          this.errors.push("Le message doit contenir 15 caractères minimun");
         }
       }
 
-      this.errors.length === 0 ? this.displayAlert = true : this.displayAlert = false
-    }
-  }
-}
+      this.errors.length === 0
+        ? (this.displayAlert = true)
+        : (this.displayAlert = false);
+    },
+  },
+};
 </script>
 
 <style lang="scss">
-$color-success: #4BB543;
+$color-success: #4bb543;
 $color-error: #ff3333;
+$rotate-error: 45deg;
 
 .container {
   display: flex;
@@ -123,13 +139,16 @@ $color-error: #ff3333;
     background-color: $color-error;
 
     & .fa-rocket {
-      rotate: 45deg;
+      transform: rotate($rotate-error);
+      -ms-transform: rotate($rotate-error); /* IE 9 */
+      -moz-transform: rotate($rotate-error); /* Firefox */
+      -webkit-transform: rotate($rotate-error); /* Safari and Chrome */
+      -o-transform: rotate($rotate-error); /* Opera */
     }
   }
 }
 
 .form {
-  
   &__field {
     margin-top: 10px;
     display: flex;
@@ -146,10 +165,15 @@ $color-error: #ff3333;
       padding: 7px;
       width: 75%;
       font: 14px cursive;
+      outline: none;
 
-      &:required,&:invalid { box-shadow:none; }
+      &:required,
+      &:invalid {
+        box-shadow: none;
+      }
 
-      &:focus, &:valid {
+      &:focus,
+      &:valid {
         border-color: #222;
       }
     }
@@ -158,7 +182,7 @@ $color-error: #ff3333;
   &__information {
     display: flex;
     justify-content: space-between;
-      font-style: italic;
+    font-style: italic;
     & span {
       &.valid-message {
         color: $color-success;
@@ -177,7 +201,7 @@ $color-error: #ff3333;
   font-size: 14px;
   padding-top: 20px;
   margin-bottom: 5px;
-  
+
   & input {
     border: none;
     -webkit-appearance: none;
@@ -193,41 +217,41 @@ $color-error: #ff3333;
     border-radius: 0;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    background:
-      linear-gradient(90deg, #222, #222) center bottom/0 0.15em no-repeat,
+    background: linear-gradient(90deg, #222, #222) center bottom/0 0.15em
+        no-repeat,
       linear-gradient(90deg, #ccc, #ccc) left bottom/100% 0.15em no-repeat,
       linear-gradient(90deg, #fafafa, #fafafa) left bottom/100% no-repeat;
     transition: background-size 0.3s ease;
 
-    &:required,&:invalid { box-shadow:none; }
+    &:required,
+    &:invalid {
+      box-shadow: none;
+    }
   }
-  
+
   & .placeholder {
     position: absolute;
     left: 12px;
     top: calc(50% + 10px);
     transform: translateY(-50%);
     color: #aaa;
-    transition: 
-      top 0.3s ease,
-      color 0.3s ease,
-      font-size 0.3s ease;
+    transition: top 0.3s ease, color 0.3s ease, font-size 0.3s ease;
   }
-  
+
   & input:valid + .placeholder,
   & input:focus + .placeholder {
     top: 10px;
     font-size: 10px;
     color: #222;
   }
-  
+
   & input:valid,
   & input:focus {
     background-size: 100% 0.15em, 100% 0.1em, 100%;
   }
 }
 
-// 
+//
 
 // style button
 
@@ -249,14 +273,15 @@ $color-error: #ff3333;
     font-size: 16px;
     position: relative;
 
-    &::before, &::after {
+    &::before,
+    &::after {
       content: "";
       position: absolute;
       width: 14px;
       height: 4px;
       background: #fff;
       transform: skewX(50deg);
-      transition: .4s linear;
+      transition: 0.4s linear;
     }
 
     &::before {
@@ -282,5 +307,5 @@ $color-error: #ff3333;
   }
 }
 
-// 
+//
 </style>

@@ -63,10 +63,6 @@ export default {
       type: Function,
       required: true,
     },
-    // addToShoppingCart: {
-    //     type: Function,
-    //     reuired: true
-    // },
     image: {
       type: Object,
       required: true,

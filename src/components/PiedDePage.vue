@@ -14,8 +14,6 @@
                 </ul>
             </div>
 
-            <!-- <div class="infos__separateur"></div> -->
-
             <div class="infos__nous-rejoindre">
                 <h3>Nous rejoindre:</h3>
                 <i class="fab fa-instagram-square"></i>
@@ -37,11 +35,6 @@ export default {
     name: 'PiedDePage',
     components: {
         Carousel
-    },
-    data() {
-        return {
-
-        }
     },
     computed: {
         copyright() {

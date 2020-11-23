@@ -1,8 +1,4 @@
 <template>
-  <!-- <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div> -->
   <div>
     <div class="menu">
       <router-link :to="{ name: 'Boisson' }" class="menu__btn">
@@ -22,8 +18,6 @@
 </template>
 
 <script>
-
-// @ is an alias to /src
 export default {
   name: 'Home'
 }
